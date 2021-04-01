@@ -15,4 +15,9 @@ class TodoController extends Controller
     {
         return view('todo/add');
     }
+
+    public function addPost()
+    {
+
+    }
 }
