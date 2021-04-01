@@ -7,6 +7,13 @@
     <title>Document</title>
 </head>
 <body style="width:1300px; margin:0; padding:0;">
-    @yield('content')
+    <header>
+        <div class="container">
+            <h1>TODOリスト</h1>
+        </div>
+    </header>
+    <div class="container">
+        @yield('content')
+    </div>
 </body>
 </html>
