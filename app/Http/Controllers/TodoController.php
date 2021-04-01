@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Todo;
 
 class TodoController extends Controller
 {
@@ -16,8 +17,14 @@ class TodoController extends Controller
         return view('todo/add');
     }
 
-    public function addPost()
+    public function addPost(Request $request)
     {
-
+        $todo = new Todo;
+        dd($todo);
+        $todo->title = $request->title;
+        $todo->content = $request->content;
+        $todo->status = $request->status;
+        $todo->save();
+        return redirect()->action("TodoController@index")->with('add_message', '保存されました！');
     }
 }

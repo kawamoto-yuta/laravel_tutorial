@@ -17,4 +17,4 @@ Route::get('/', function () {
 
 Route::get('todo', 'TodoController@index');
 Route::get('todo/add', 'TodoController@add');
-Route::get('todo/addPost', 'TodoController@addPost');
+Route::post('todo/addPost', 'TodoController@addPost')->middleware('html.minify');

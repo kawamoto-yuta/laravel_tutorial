@@ -4,12 +4,12 @@
 {{Form::open(['action' => 'TodoController@addPost', 'files' => true])}}
 
 {{Form::label('title','タイトル')}}
-{{Form::text('inputTitle', null, ['class' => 'form-control', 'placeholder' => 'タイトル'])}}
+{{Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'タイトル'])}}
 
-{{Form::label('additional','詳細')}}
-{{Form::textarea('inputAdditional', null, ['class' => 'form-control', 'placeholder' => '詳細'])}}
+{{Form::label('content','詳細')}}
+{{Form::textarea('content', null, ['class' => 'form-control', 'placeholder' => '詳細'])}}
 
-{{Form::text('inputAdditional', 0, ['style' => 'display: none;'])}}
+{{Form::text('status', 0, ['style' => 'display: none;'])}}
 
 {{Form::submit('保存', ['class'=>'btn btn-primary btn-block'])}}
 
