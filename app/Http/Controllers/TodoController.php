@@ -9,7 +9,8 @@ class TodoController extends Controller
 {
     public function index()
     {
-        return view('todo/index');
+        $todos = Todo::get();
+        return view('todo/index', ['todos' => $todos]);
     }
 
     public function add()
@@ -20,7 +21,6 @@ class TodoController extends Controller
     public function addPost(Request $request)
     {
         $todo = new Todo;
-        dd($todo);
         $todo->title = $request->title;
         $todo->content = $request->content;
         $todo->status = $request->status;
