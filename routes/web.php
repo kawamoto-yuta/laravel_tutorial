@@ -23,11 +23,11 @@ Route::group(['middleware' => 'html.minify'], function () {
 
 Route::get('/', function () {
     return redirect('home');
- });
+});
  
  Route::get('/home', function () {
     return view('top');
- });
+});
  
  //ログイン処理
 Route::post('/login', 'SimpleLoginController@login');
