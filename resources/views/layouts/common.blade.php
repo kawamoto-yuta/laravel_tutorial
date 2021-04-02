@@ -8,8 +8,12 @@
 </head>
 <body style="width:1300px; margin:0; padding:0;">
     <header>
-        <div class="container">
-            <h1>TODOリスト</h1>
+        <div class="container" style="display:flex; justify-content:left; align-items:end;">
+            <h2>TODOリスト</h2>
+            <form method="post" action="{{ url('logout') }}">
+                @csrf 
+                <input type="submit" value="ログアウト" />
+            </form>
         </div>
     </header>
     <div class="container">

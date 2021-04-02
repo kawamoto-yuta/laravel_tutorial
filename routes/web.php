@@ -11,11 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('todo', 'TodoController@index');
+Route::get('todo', 'TodoController@index')->middleware("simple_auth");
 Route::get('todo/add', 'TodoController@add');
 Route::post('todo/addPost', 'TodoController@addPost')->middleware('html.minify');
 Route::get('todo/show/{id}', 'TodoController@show');
@@ -24,3 +20,16 @@ Route::group(['middleware' => 'html.minify'], function () {
     Route::post('todo/addPost', 'TodoController@addPost');
     Route::post('todo/edit', 'TodoController@editPost');
 });
+
+Route::get('/', function () {
+    return redirect('home');
+ });
+ 
+ Route::get('/home', function () {
+    return view('top');
+ });
+ 
+ //ログイン処理
+Route::post('/login', 'SimpleLoginController@login');
+//ログアウト
+Route::post('/logout', 'SimpleLogoutController@logout');

@@ -62,6 +62,8 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'html.minify' => \App\Http\Middleware\HtmlMinify::class, // ← 追加
+        //SimpleAuthを追加
+        'simple_auth' => \App\Http\Middleware\SimpleAuth::class
     ];
 
     /**
