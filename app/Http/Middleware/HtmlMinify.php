@@ -16,7 +16,7 @@ class HtmlMinify
     public function handle($request, Closure $next)
     {
         if ($request->title == null) {
-            return redirect('todo/add');
+            return redirect("todo/{$request->place}");
         }
         return $next($request);
     }

@@ -1,6 +1,6 @@
 @extends('layouts.common')
 @section('content')
-<h3>TODO新規登録</h3>
+<p>新規登録</p>
 {{Form::open(['action' => 'TodoController@addPost', 'files' => true])}}
 
 {{Form::label('title','タイトル')}}
@@ -10,6 +10,7 @@
 {{Form::textarea('content', null, ['class' => 'form-control', 'placeholder' => '詳細'])}}
 
 {{Form::text('status', 0, ['style' => 'display: none;'])}}
+{{Form::text('place', "add", ['style' => 'display: none;'])}}
 
 {{Form::submit('保存', ['class'=>'btn btn-primary btn-block'])}}
 
