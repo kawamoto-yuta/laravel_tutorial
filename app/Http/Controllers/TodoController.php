@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Todo;
+use App\User;
 
 class TodoController extends Controller
 {
     public function index()
     {
-        $incompletes = Todo::where('status', 0)->get();
-        $completes = Todo::where('status', 1)->get();
+        $incompletes = Todo::where('status', 0)->where('user_id', $user_id)->get();
+        $completes = Todo::where('status', 1)->where('user_id', $user_id)->get();
         return view('todo/index', ['incompletes' => $incompletes, 'completes' => $completes]);
     }
 

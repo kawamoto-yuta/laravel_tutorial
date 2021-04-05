@@ -12,11 +12,12 @@ class SimpleLoginController extends Controller
 		$name = $request->input("name");
 		$password = $request->input("password");
 		$user = User::where('name', $name)->first();
+		$user_id = $user->id;
 		// dd($user->password);
 		//ログイン成功
 		if($password == $user->password){
             session()->put("simple_auth", true);
-			return redirect("/todo");
+			return redirect("/todo")->with('user_id', $user_id);
 		}
 
 		//ログイン失敗
