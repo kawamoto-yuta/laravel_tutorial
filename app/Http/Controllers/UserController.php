@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class UserController extends Controller
 {
@@ -11,11 +12,12 @@ class UserController extends Controller
         return view('user/add');
     }
 
-    public function userAddPost()
+    public function userAddPost(Request $request)
     {
         $user = new User;
 
-        $user->u_id = $request->u_id;
+        $user->name = $request->name;
+        $user->email = $request->email;
         $user->password = $request->password;
         $user->save();
         return redirect()->action("TodoController@index")->with('message', '保存されました！');

@@ -13,7 +13,7 @@
 
 Route::get('todo', 'TodoController@index')->middleware("simple_auth");
 Route::get('todo/add', 'TodoController@add');
-Route::post('todo/addPost', 'TodoController@addPost')->middleware('html.minify');
+// Route::post('todo/addPost', 'TodoController@addPost')->middleware('html.minify');
 Route::get('todo/show/{id}', 'TodoController@show');
 Route::get('todo/edit/{id}', 'TodoController@edit');
 Route::group(['middleware' => 'html.minify'], function () {
@@ -35,4 +35,4 @@ Route::post('/login', 'SimpleLoginController@login');
 Route::post('/logout', 'SimpleLogoutController@logout');
 // ユーザー登録
 Route::get('/user_add', 'UserController@userAdd');
-Route::post('/userAddPost', 'UserController@userAddPost')->middleware('UserAdd');
+Route::post('/user_add', 'UserController@userAddPost')->middleware('useradd');

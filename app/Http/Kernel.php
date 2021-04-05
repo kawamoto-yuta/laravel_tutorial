@@ -63,7 +63,8 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'html.minify' => \App\Http\Middleware\HtmlMinify::class, // ← 追加
         //SimpleAuthを追加
-        'simple_auth' => \App\Http\Middleware\SimpleAuth::class
+        'simple_auth' => \App\Http\Middleware\SimpleAuth::class,
+        'useradd' => \App\Http\Middleware\UserAdd::class
     ];
 
     /**

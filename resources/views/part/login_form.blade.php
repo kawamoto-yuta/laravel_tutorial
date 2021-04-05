@@ -12,7 +12,7 @@
 @csrf 
 
 <div>
-	ID: <input type="text" name="user_id" value="" />
+	ID: <input type="text" name="name" value="" />
 </div>
 
 <div>

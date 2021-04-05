@@ -16,14 +16,14 @@ class UserAdd
      */
     public function handle($request, Closure $next)
     {
-        if ($request->u_id == null || $request->password == null ) {
+        if ($request->name == null || $request->password == null || $request->email == null ) {
             return redirect("/userAddPost")->withErrors([
-                "error" => "ID、パスワードは入力必須です。"
+                "error" => "名前、メール、パスワードは入力必須です。"
             ]);
-        }elseif (!uniqu($request->u_id)){
-            return redirect("/userAddPost")->withErrors([
-                "error" => "そのIDはすでに使われています。"
-            ]);
+        // }elseif (!unique($request->name)){
+        //     return redirect("/userAddPost")->withErrors([
+        //         "error" => "その名前はすでに登録されています。"
+        //     ]);
         }
         return $next($request);
     }

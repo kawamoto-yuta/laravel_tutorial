@@ -3,16 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class SimpleLoginController extends Controller
 {
     function login(Request $request){
 		//入力内容をチェックする
-		$user_id = $request->input("user_id");
+		$name = $request->input("name");
 		$password = $request->input("password");
-
+		$user = User::where('name', $name)->first();
+		// dd($user->password);
 		//ログイン成功
-		if($user_id == "hogehoge" && $password == "fugafuga"){
+		if($password == $user->password){
             session()->put("simple_auth", true);
 			return redirect("/todo");
 		}
