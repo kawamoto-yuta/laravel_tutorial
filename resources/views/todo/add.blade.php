@@ -1,6 +1,15 @@
 @extends('layouts.common')
 @section('content')
 <p>新規登録</p>
+@if ($errors->any())
+<div style="color:red;">
+<ul>
+	@foreach ($errors->all() as $error)
+	<li>{{ $error }}</li>
+	@endforeach
+</ul>
+</div>
+@endif
 {{Form::open(['action' => 'TodoController@addPost', 'files' => true])}}
 
 {{Form::label('title','タイトル')}}

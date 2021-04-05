@@ -16,7 +16,9 @@ class HtmlMinify
     public function handle($request, Closure $next)
     {
         if ($request->title == null) {
-            return redirect("todo/{$request->place}");
+            return redirect("todo/{$request->place}")->withErrors([
+                "title" => "タイトルは入力必須です。"
+            ]);
         }
         return $next($request);
     }

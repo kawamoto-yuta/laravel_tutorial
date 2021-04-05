@@ -1,6 +1,15 @@
 @extends('layouts.common')
 @section('content')
 <p>編集</p>
+@if ($errors->any())
+<div style="color:red;">
+<ul>
+	@foreach ($errors->all() as $error)
+	<li>{{ $error }}</li>
+	@endforeach
+</ul>
+</div>
+@endif
 {{Form::open(['action' => 'TodoController@editPost', 'files' => true])}}
 
 {{Form::label('title','タイトル')}}
