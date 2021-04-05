@@ -33,3 +33,6 @@ Route::get('/', function () {
 Route::post('/login', 'SimpleLoginController@login');
 //ログアウト
 Route::post('/logout', 'SimpleLogoutController@logout');
+// ユーザー登録
+Route::get('/user_add', 'UserController@userAdd');
+Route::post('/userAddPost', 'UserController@userAddPost')->middleware('UserAdd');

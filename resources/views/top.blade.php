@@ -7,7 +7,6 @@
 @csrf 
 <input type="submit" value="ログアウト" />
 </form>
-
 @else
 
 @include("part.login_form")

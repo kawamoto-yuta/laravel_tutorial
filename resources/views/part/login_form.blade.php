@@ -18,7 +18,6 @@
 <div>
 	PASS: <input type="password" name="password" value="" />
 </div>
-
 <input type="submit" value="ログイン" />
-
+<a href="{{ action('UserController@userAdd') }}">新規登録する</a>
 </form>
