@@ -13,7 +13,6 @@ class SimpleLoginController extends Controller
 		$password = $request->input("password");
 		$user = User::where('name', $name)->first();
 		$user_id = $user->id;
-		// dd($user->password);
 		//ログイン成功
 		if($password == $user->password){
             session()->put("simple_auth", true);

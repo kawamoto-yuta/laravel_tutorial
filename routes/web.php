@@ -21,13 +21,13 @@ Route::group(['middleware' => 'html.minify'], function () {
     Route::post('todo/edit', 'TodoController@editPost');
 });
 
-Route::get('/', function () {
-    return redirect('home');
-});
+// Route::get('/', function () {
+//     return redirect('home');
+// });
  
- Route::get('/home', function () {
-    return view('top');
-});
+//  Route::get('/home', function () {
+//     return view('top');
+// });
  
  //ログイン処理
 Route::post('/login', 'SimpleLoginController@login');
@@ -36,3 +36,7 @@ Route::post('/logout', 'SimpleLogoutController@logout');
 // ユーザー登録
 Route::get('/user_add', 'UserController@userAdd');
 Route::post('/user_add', 'UserController@userAddPost')->middleware('useradd');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
