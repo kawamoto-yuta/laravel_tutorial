@@ -58,12 +58,16 @@ class TodoController extends Controller
         $todo = Todo::find($request->id);
         $todo->title = $request->title;
         $todo->content = $request->content;
-        $todo->status = $request->status;
-        
-        // $todo->title = $request->input('title');
-        // $todo->content = $request->input('content');
-        // $todo->status = $request->input('status');
+        $todo->status = $request->status;  
         $todo->save();
         return redirect()->action("TodoController@index")->with('message', '保存されました！');
+    }
+
+    public function destory($id)
+    {
+        $todo = Todo::findOrFail($id);
+        $todo->delete();
+
+        return redirect('home')->with('message', '削除しました！');
     }
 }

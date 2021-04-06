@@ -29,4 +29,8 @@
 {{Form::submit('保存', ['class'=>'btn btn-primary btn-block'])}}
 
 {{Form::close()}}
+
+{!! Form::model($todo, ['action' => ['TodoController@destory', $todo->id]]) !!}
+    {!! Form::submit('削除', ['class' => 'btn btn-danger']) !!}
+{!! Form::close() !!}
 @endsection

@@ -16,6 +16,7 @@ Route::get('todo/add', 'TodoController@add');
 // Route::post('todo/addPost', 'TodoController@addPost')->middleware('html.minify');
 Route::get('todo/show/{id}', 'TodoController@show');
 Route::get('todo/edit/{id}', 'TodoController@edit');
+Route::post('todo/destory/{id}', 'TodoController@destory');
 Route::group(['middleware' => 'html.minify'], function () {
     Route::post('todo/addPost', 'TodoController@addPost');
     Route::post('todo/edit', 'TodoController@editPost');
