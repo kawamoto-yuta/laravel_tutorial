@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth; //追加
 use Illuminate\Http\Request;
 use App\Todo;
 use App\User;
@@ -35,13 +36,21 @@ class TodoController extends Controller
     public function show($id)
     {
         $todo = Todo::find($id);
-        return view('todo/show', ['todo' => $todo]);
+        if(Auth::user()->id == $todo->user_id) {
+            return view('todo/show', ['todo' => $todo]);
+        }else{
+            return redirect('home')->with('message', 'そのページには遷移できません。');
+        }
     }
 
     public function edit($id)
     {
         $todo = Todo::find($id);
-        return view('todo/edit', ['todo' => $todo]);
+        if(Auth::user()->id == $todo->user_id) {
+            return view('todo/edit', ['todo' => $todo]);
+        }else{
+            return redirect('home')->with('message', 'そのページには遷移できません。');
+        }
     }
 
     public function editPost(Request $request)

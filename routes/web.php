@@ -30,12 +30,12 @@ Route::get('/', function () {
 // });
  
  //ログイン処理
-Route::post('/login', 'SimpleLoginController@login');
-//ログアウト
-Route::post('/logout', 'SimpleLogoutController@logout');
-// ユーザー登録
-Route::get('/user_add', 'UserController@userAdd');
-Route::post('/user_add', 'UserController@userAddPost')->middleware('useradd');
+// Route::post('/login', 'SimpleLoginController@login');
+// //ログアウト
+// Route::post('/logout', 'SimpleLogoutController@logout');
+// // ユーザー登録
+// Route::get('/user_add', 'UserController@userAdd');
+// Route::post('/user_add', 'UserController@userAddPost')->middleware('useradd');
 
 Auth::routes();
 
