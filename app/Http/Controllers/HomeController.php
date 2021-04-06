@@ -26,8 +26,8 @@ class HomeController extends Controller
     public function index()
     {
         // $todos = Todo::where('user_id', '=', Auth::user()->id)->get();
-        $incompletes = Todo::where('status', 0)->where('user_id', Auth::user()->id)->get();
-        $completes = Todo::where('status', 1)->where('user_id', Auth::user()->id)->get();
+        $incompletes = Todo::orderBy('created_at', 'desc')->where('status', 0)->where('user_id', Auth::user()->id)->get();
+        $completes = Todo::orderBy('created_at', 'desc')->where('status', 1)->where('user_id', Auth::user()->id)->get();
 
         return view('home',compact('incompletes', 'completes'));
     }
