@@ -9,6 +9,24 @@
                     <p>{{ session('message') }}</p>
                 </div>
             @endif
+            <form action="{{ url('/todo/search') }}" method="get">
+                <div class="">
+                    <label>タイトル</label>
+                    <input type="text" name="title" value="{{ $title ?? '' }}">
+                </div>
+                <div class="" style="margin-top: 10px;">
+                    <label>詳細</label>
+                    <input type="text" name="content" value="{{ $content ?? '' }}">
+                </div>
+                <div>
+                    <label>ステータス</label>
+                    <input type="checkbox" name="incomplete" value=0>未完了
+                    <input type="checkbox" name="completed" value=1>完了
+                </div>
+                <input type="submit" value="検索" class="">
+            </form>
+
+
             <div class="card">
                 <div class="card-header">ダッシュボード</div>
                 @if (session('status'))

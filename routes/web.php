@@ -12,6 +12,7 @@
 */
 
 Route::get('todo', 'TodoController@index')->middleware("simple_auth");
+Route::get('todo/search', 'HomeController@search');
 Route::get('todo/add', 'TodoController@add');
 // Route::post('todo/addPost', 'TodoController@addPost')->middleware('html.minify');
 Route::get('todo/show/{id}', 'TodoController@show');
