@@ -54,14 +54,7 @@ class HomeController extends Controller
         
         $in_c_s_todos = $in_c_query->get();
         $c_s_todos = $c_query->get();
-        
-        
-        if(is_null($incomplete) && is_null($completed) || !is_null($incomplete) && !is_null($completed)) {
-            return view('todo.search', compact('in_c_s_todos', 'c_s_todos'));
-        }elseif(is_null($incomplete)) {
-            return view('todo.search', compact('c_s_todos'));
-        }elseif(is_null($completed)) {
-            return view('todo.search', compact('in_c_s_todos'));
-        }
+
+        return view('todo.search', compact('in_c_s_todos', 'c_s_todos'));
     }
 }

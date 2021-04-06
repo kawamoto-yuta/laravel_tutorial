@@ -86,6 +86,9 @@
                     </div>
                     @endforeach
                     @endif
+                    @if(empty($in_c_s_todos[0]->title) && empty($c_s_todos[0]->title))
+                    <div class="h3" style="text-align:center; margin:20px 0;">検索条件に合うToDoはありません。</div>
+                    @endif
                 </div>
             </div>
         </div>
