@@ -1,4 +1,4 @@
-@extends('layouts.common')
+@extends('layouts.app')
 @section('content')
 <p>編集</p>
 @if ($errors->any())

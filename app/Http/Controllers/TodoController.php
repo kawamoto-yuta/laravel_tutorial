@@ -30,7 +30,7 @@ class TodoController extends Controller
         $todo->status = $request->status;
         $todo->user_id = $request->user_id;
         $todo->save();
-        return redirect()->action("TodoController@index")->with('message', '保存されました！');
+        return redirect('home')->with('message', '保存されました！');
     }
 
     public function show($id)
@@ -60,7 +60,7 @@ class TodoController extends Controller
         $todo->content = $request->content;
         $todo->status = $request->status;  
         $todo->save();
-        return redirect()->action("TodoController@index")->with('message', '保存されました！');
+        return redirect('home')->with('message', '保存されました！');
     }
 
     public function destory($id)

@@ -1,4 +1,4 @@
-@extends('layouts.common')
+@extends('layouts.app')
 @section('content')
 <p>詳細</p>
 <div class="incompletes" style="margin-top: 20px;">

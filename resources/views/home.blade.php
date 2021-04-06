@@ -4,26 +4,21 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
-                @if (session('message'))
-                    <div class="">
-                        <p>{{ session('message') }}</p>
-                    </div>
-                @endif
-
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-                </div>
+            @if (session('message'))
                 <div class="">
-                    <a href="{{ action('TodoController@add') }}">TODO新規登録</a>
+                    <p>{{ session('message') }}</p>
                 </div>
-                <div class="" style="margin-top: 20px;">
+            @endif
+            <div class="card">
+                <div class="card-header">ダッシュボード</div>
+                @if (session('status'))
+                <div class="card-body">
+                    <div class="alert alert-success" role="alert">
+                        {{ session('status') }}
+                    </div>
+                </div>
+                @endif
+                <div class="">
                     @foreach($incompletes as $incomplete)
                         <div class="incompletes" style="margin-top: 20px;">
                             <div class="title">{{ $incomplete->title }}</div>

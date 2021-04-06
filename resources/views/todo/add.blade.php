@@ -1,4 +1,4 @@
-@extends('layouts.common')
+@extends('layouts.app')
 @section('content')
 <p>新規登録</p>
 @if ($errors->any())
