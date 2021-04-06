@@ -14,7 +14,9 @@
                         </div>
                     @endif
                 </div>
-                <p>一覧</p>
+                <div class="">
+                    <a href="{{ action('TodoController@add') }}">TODO新規登録</a>
+                </div>
                 <div class="todos" style="margin-top: 20px;">
                     @foreach($incompletes as $incomplete)
                         <div class="incompletes" style="margin-top: 20px;">
