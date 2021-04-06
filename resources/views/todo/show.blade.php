@@ -10,7 +10,7 @@
                     <p>{{ $todo->title }}</p>
                 </div>
                 <div class="content">
-                    <p style="margin:0;"><<b>内容</b>></p>
+                    <p style="margin:0;"><<b>詳細</b>></p>
                     <p>{{ $todo->content }}</p>
                 </div>
                 <div class="updated_at">
