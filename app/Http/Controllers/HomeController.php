@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth; //追加
 use Illuminate\Http\Request;
+use App\Todo;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        // $todos = Todo::where('user_id', '=', Auth::user()->id)->get();
+        $incompletes = Todo::where('status', 0)->where('user_id', Auth::user()->id)->get();
+        $completes = Todo::where('status', 1)->where('user_id', Auth::user()->id)->get();
+
+        return view('home',compact('incompletes', 'completes'));
     }
 }

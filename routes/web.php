@@ -21,9 +21,9 @@ Route::group(['middleware' => 'html.minify'], function () {
     Route::post('todo/edit', 'TodoController@editPost');
 });
 
-// Route::get('/', function () {
-//     return redirect('home');
-// });
+Route::get('/', function () {
+    return redirect('home');
+});
  
 //  Route::get('/home', function () {
 //     return view('top');
