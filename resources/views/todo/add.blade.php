@@ -20,6 +20,7 @@
 
 {{Form::text('status', 0, ['style' => 'display: none;'])}}
 {{Form::text('place', "add", ['style' => 'display: none;'])}}
+{{Form::text('user_id', Auth::user()->id, ['style' => 'display: none;'])}}
 
 {{Form::submit('保存', ['class'=>'btn btn-primary btn-block'])}}
 

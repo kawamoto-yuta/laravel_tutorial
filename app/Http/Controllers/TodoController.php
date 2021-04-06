@@ -27,6 +27,7 @@ class TodoController extends Controller
         $todo->title = $request->title;
         $todo->content = $request->content;
         $todo->status = $request->status;
+        $todo->user_id = $request->user_id;
         $todo->save();
         return redirect()->action("TodoController@index")->with('message', '保存されました！');
     }
