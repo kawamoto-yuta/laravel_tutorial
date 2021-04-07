@@ -3,8 +3,12 @@
 @section('content')
 <div class="container">
     @if (session('message'))
-    <div class="">
-        <p>{{ session('message') }}</p>
+    <div class="alert alert-success">
+        {{ session('message') }}
+    </div>
+    @elseif (session('not_success'))
+    <div class="alert alert-danger">
+        {{ session('not_success') }}
     </div>
     @endif
     <div class="row">

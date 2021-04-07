@@ -39,7 +39,7 @@ class TodoController extends Controller
         if(Auth::user()->id == $todo->user_id) {
             return view('todo/show', ['todo' => $todo]);
         }else{
-            return redirect('home')->with('message', 'そのページには遷移できません。');
+            return redirect('home')->with('not_success', 'そのページには遷移できません。');
         }
     }
 
@@ -49,7 +49,7 @@ class TodoController extends Controller
         if(Auth::user()->id == $todo->user_id) {
             return view('todo/edit', ['todo' => $todo]);
         }else{
-            return redirect('home')->with('message', 'そのページには遷移できません。');
+            return redirect('home')->with('not_success', 'そのページには遷移できません。');
         }
     }
 
