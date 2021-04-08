@@ -26,16 +26,16 @@ class HomeController extends Controller
     public function index()
     {
         // $todos = Todo::where('user_id', '=', Auth::user()->id)->get();
-        $incompletes = Todo::orderBy('created_at', 'desc')->where('status', 0)->where('user_id', Auth::user()->id)->get();
-        $completes = Todo::orderBy('created_at', 'desc')->where('status', 1)->where('user_id', Auth::user()->id)->get();
+        $incompletes = Todo::where('user_id', Auth::user()->id)->orderBy('created_at', 'desc')->where('status', 0)->get();
+        $completes = Todo::where('user_id', Auth::user()->id)->orderBy('created_at', 'desc')->where('status', 1)->get();
 
         return view('home',compact('incompletes', 'completes'));
     }
 
     public function search(Request $request)
     {
-        $in_c_query = Todo::orderBy('created_at', 'desc')->where('status', 0)->where('user_id', Auth::user()->id);
-        $c_query = Todo::orderBy('created_at', 'desc')->where('status', 1)->where('user_id', Auth::user()->id);
+        $in_c_query = Todo::where('user_id', Auth::user()->id)->orderBy('created_at', 'desc')->where('status', 0);
+        $c_query = Todo::where('user_id', Auth::user()->id)->orderBy('created_at', 'desc')->where('status', 1);
         
         $title = $request->input('title');
         $content = $request->input('content');
