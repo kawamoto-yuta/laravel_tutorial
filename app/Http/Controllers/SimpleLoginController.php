@@ -18,7 +18,6 @@ class SimpleLoginController extends Controller
             session()->put("simple_auth", true);
 			return redirect("/todo")->with('user_id', $user_id);
 		}
-
 		//ログイン失敗
 		return redirect("/home")->withErrors([
 			"login" => "ユーザーIDまたはパスワードが違います"
