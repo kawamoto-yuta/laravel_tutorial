@@ -15,7 +15,7 @@ class SimpleLoginController extends Controller
 		$user_id = $user->id;
 		//ログイン成功
 		if($password == $user->password){
-            session()->put("simple_auth", true);
+			session()->put("simple_auth", true);
 			return redirect("/todo")->with('user_id', $user_id);
 		}
 		//ログイン失敗
